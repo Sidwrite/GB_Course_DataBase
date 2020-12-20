@@ -41,8 +41,8 @@ delimiter ;
 -- 2. (по желанию) Создайте SQL-запрос, который помещает в таблицу users миллион записей.
 
 
-DROP TABLE IF EXISTS test_users; 
-CREATE TABLE test_users (
+DROP TABLE IF EXISTS users; 
+CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(255),
 	birthday_at DATE,
@@ -58,7 +58,7 @@ BEGIN
 	DECLARE i INT DEFAULT 1000000;
 	DECLARE j INT DEFAULT 0;
 	WHILE i > 0 DO
-		INSERT INTO test_users(name, birthday_at) VALUES (CONCAT('user_', j), NOW());
+		INSERT INTO users(name, birthday_at) VALUES (CONCAT('user_', j), NOW());
 		SET j = j + 1;
 		SET i = i - 1;
 	END WHILE;
